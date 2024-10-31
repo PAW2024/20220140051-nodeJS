@@ -13,7 +13,7 @@ let todos = [
    },
 ];
 
-router.get('/',(req,res)=>{res.json(todos);});
+router.get('/',(req,res)=>{res.json(todos)});
 
 router.post('/',(req,res) => {
     const newTodo = {

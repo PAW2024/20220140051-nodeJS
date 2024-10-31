@@ -1,12 +1,23 @@
 const express = require('express');
 const app = express();
-const todoRoutes = require('./routes/todo.js');
-const port = 3000;
+const todoRoutes = require('./routes/tododb.js');
+require('dotenv').config();
+const port = process.env.PORT;
+
+
 
 app.use(express.json());
 
 app.use('/todos',todoRoutes);
 app.set('view engine', 'ejs')
+
+
+
+app.post('/todos',(req,res)=> {
+    const data = req.body;
+    res.send("Data received");
+})
+
 app.get('/', (req, res) => {
     res.render('index');
 });
